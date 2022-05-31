@@ -458,6 +458,27 @@ a {
     #home {
         text-align: center;
         align-items: center;
+        height: 70vh;
+    }
+
+    #sobre{
+        height: 85vh;
+    }
+
+    #simulacao{
+        display: block;
+        height: 110vh;
+    }
+
+    .box_simulacao {
+        width: 80%;
+        height: 30%;
+    }
+
+    .box_predio {
+        width: 80%;
+        height: 70%;
+        margin: 5% 0 0 10%;
     }
 
     .texto_inicial {
@@ -476,6 +497,27 @@ a {
     #sobre img {
         width: 20%;
         padding: 0 20px;
+    }
+
+    .container_contato {
+        display: block;
+    }
+
+    .texto_contato {
+        width: 80%;
+        height: 50%;
+        margin-left: 10%;
+        margin-top: 10%;
+    }
+
+    .formulario_contato {
+        width: 80%;
+        margin-left: 10%;
+    }
+
+    .nossos_servicos {
+        width: 80%;
+        left: 10%;
     }
 
 }
@@ -518,6 +560,36 @@ a {
         width: 80%;
         height: 100%;
         
+    }
+
+}
+
+@media screen and (max-width: 500px) {
+
+    .formulario_contato {
+        width: 95%;
+        margin-left: 2.5%;
+    }
+
+    .box_predio {
+        width: 80%;
+        height: 50%;
+        margin: 0 0 0 10%;
+    }
+
+    .box_simulacao {
+        width: 80%;
+        height: 50%;
+    }
+
+    #sobre { 
+        height: 65vh;
+    }
+
+    .nossos_servicos {
+        left: 10%;
+        width: 80%;
+        height: 60%;
     }
 
 }

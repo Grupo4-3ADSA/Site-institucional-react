@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import '../html-css-template/css/style.css';
 import fundo from '../html-css-template/images/fundo.png';
 import logo from '../html-css-template/images/autg.png';
@@ -13,22 +13,57 @@ import fundo_servicos from '../html-css-template/images/fundo_servicos.png'
 import fundo_simulacao from '../html-css-template/images/fundo_simulacao.png'
 import fundo_contato from '../html-css-template/images/fundo_contato.png'
 import automacao from '../html-css-template/images/automacao.png'
+import monitoramento from '../html-css-template/images/assinatura-eletronica.png'
 import predio from '../html-css-template/images/predio.png'
 import Andar from "../componentes/andar";
 import adicionar from '../html-css-template/images/adicionar.png'
 import excluir from '../html-css-template/images/excluir.png'
+import SlideRoutes from 'react-slide-routes';
+import { Route, NavLink } from 'react-router-dom';
+
 
 let quantidadeAndares = 1
 
 function Index() {
 
+    const Home = () =>
+        <div className="card home">
+
+            <img src={automacao} alt="" />
+
+            <div className="servico">Automação Eletrica</div>
+
+            <p>Conquiste o controle total da sua empresa na palma da sua mão</p>
+
+        </div>;
+
+    const Monitoramento = () => <div className="card about">
+        <img src={monitoramento} alt="" />
+
+        <div className="servico">Monitoramento</div>
+
+        <p>Monitore todos os seus equipamentos de seu predio</p>
+
+    </div>;
+
+    const Contact = () => <div className="card contact">
+        <img src={automacao} alt="" />
+
+        <div className="servico">Eletrica 3</div>
+
+        <p>Conquiste o controle total da sua empresa na palma da sua mão</p>
+
+    </div>;
+
+
+
     const [andar, setAndar] = useState(["Andar 1"])
     const [query, setQuery] = useState("")
-    
+
     function adicionaAndar() {
         quantidadeAndares += 1
         setQuery(`Andar ${quantidadeAndares}`)
-        setAndar(andar => [`Andar ${quantidadeAndares}`,...andar])
+        setAndar(andar => [`Andar ${quantidadeAndares}`, ...andar])
         console.log(andar)
     }
 
@@ -107,11 +142,17 @@ function Index() {
 
                     <div className="nossos_servicos">
 
-                        <img src={automacao} alt="" />
+                        <nav className="slidenav">
+                            <NavLink to="/" end>Automação</NavLink>
+                            <NavLink to="/Monitoramento">Monitoramento</NavLink>
+                            <NavLink to="/contact">Contact</NavLink>
+                        </nav>
 
-                        <div className="servico">Automação Eletrica</div>
-
-                        <p>Conquiste o controle total da sua empresa na palma da sua mão</p>
+                        <SlideRoutes>
+                            <Route path="/" element={<Home />} />
+                            <Route path="/Monitoramento" element={<Monitoramento />} />
+                            <Route path="/contact" element={<Contact />} />
+                        </SlideRoutes>
 
                     </div>
 
@@ -140,11 +181,11 @@ function Index() {
 
                         <div className="andares">
 
-                            <div  className="adicionar">
+                            <div className="adicionar">
                                 <img onClick={adicionaAndar} src={adicionar} alt="" />
                                 <img onClick={removerAndar} src={excluir} alt="" />
                             </div>
-                            
+
                             {
 
                                 andar.map(andar => (
@@ -180,10 +221,10 @@ function Index() {
                                 •Um consultor entrará em contato, fique atento a sua caixa de e-mail
                             </p>
 
-                            <div className="solicitacao">
+                            {/* <div className="solicitacao">
                                 <h3>•Já fez sua solicitação? <span>Acompanhe seu pedido com o cnpj:</span></h3>
                                 <input class="input-field:first-child" type="text" />
-                            </div>
+                            </div> */}
 
 
                         </div>

@@ -15,6 +15,15 @@
     background-color: #20577D;
 }
 
+.slidenav {
+    display: grid;
+    grid: auto / auto-flow;
+    padding: 3px;
+    margin-bottom: 24px;
+    background: #eee;
+    border-radius: 10px;
+  }
+
 .navbar {
     height: 5%;
     width: 100%;
